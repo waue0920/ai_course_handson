@@ -1,0 +1,56 @@
+# === AI Course Hands-on ===
+# 避免 NCHC AI RAP / API Key 外洩（公開 repo 嚴禁提交）
+.env
+.env.*
+*.key
+*.pem
+config.json
+opencode.json
+*_config.json
+*api_key*
+*apikey*
+backup/
+
+# Chatbox / Opencode 本地設定
+chatbox-config.json
+chatbox-settings.json
+.opencode/
+.ai/
+
+# 作業系統暫存
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# 編輯器
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Python（若有資料分析延伸）
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+
+# Node（若有 Opencode 產生的專案）
+node_modules/
+dist/
+build/
+.next/
+out/
+
+# 日誌與暫存
+*.log
+*.tmp
+*.temp
+.cache/
+temp/
+tmp/
+
+# 參考教材備份（可選：若黃教授教材僅作內部參考，不推上公開 repo，取消下一行註解）
+# Hour_2_NotebookLM_Hands_On.pptx.pdf
