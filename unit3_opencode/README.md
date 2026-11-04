@@ -1,25 +1,22 @@
 # Unit 3 - Opencode
 
-> 夾敘夾議 70-105 分，講解 10 + 教師 Demo 25，MacBook Pro 展示，學生觀看
+> 夾敘夾議 70-105 分，教材 15 + 教師 Demo 20，MacBook Pro 展示，學生觀看
 
-## 核心設定
-- 與 Unit 2 共用同一把 NCHC AI RAP 統一試用 Key `sk-ZjaxxxxxxxxxxxxxxxxOUg`（佔位符，額度 10,000，課前更新）
-- 無需學生申請，課堂由教師使用同一把 Key Demo
-- 模型建議：需支援 tool/function calling（如 gpt-4o / claude-3.5 / deepseek-v3），課前實測
-- 環境：教師 MacBook Pro + starter 專案，學生環境非 Linux 故僅 Demo，回家再玩
+## 教材重點
+1. **Opencode 是什麼**：開源 AI Coding Agent，會讀寫檔、跑指令、改 bug，非單純問答
+2. **特色**：自然語言即程式、多檔協作、人話迭代、本地可控(接 NCHC RAP)、可部署
+3. **與他人區別**：ChatGPT/Chatbox(單段code)、NotebookLM(不寫碼)、Cursor(需IDE) vs Opencode(零到網站全自動)
+4. **學生怎麼用**：課業儀表板、社團報名/抽籤、求職履歷站、創業 MVP
 
-## Demo 題目
-`幫我做一個青禾咖啡店午餐投票系統，有三家店可投票，即時長條圖`
-
-## 回家實作（三選一，選做）
-- A. 個人履歷一頁式網站（最簡單）
-- B. 互動小工具（抽籤轉盤、成績計算機）
-- C. 資料儀表板（上傳 CSV，生成長條圖）- 最符合資管專業
+## Demo
+- **題目**：延續 Unit 2 銷售表 `sales_month.csv` 30MB 做儀表板
+- **Prompt**：三數值卡 P90/P75/P50 + 直方圖三線 + 5按鈕切換A-E + 下載 + 分塊載入
+- **環境**：MacBook Pro + `sk-Zjax...OUg` (10,000額度) + starter + 30MB，100MB留課後
 
 ## 資料夾用途
 - `starter/` - 零環境啟動包（含 `opencode.json` 範本）
-- `prompts/` - 許願卡指令範本（三種任務各 2 條）
-- `handout/` - 故障排除卡、繳交檢核單
+- `sources/` - 銷售表月報/季報 (LFS + Release v0.2.0)
+- `handout/` - 教材講義、Prompt 範本、故障排除卡
 
 ## 注意
 - 含 Key 的 `opencode.json` / `.env` 請勿提交，已在 .gitignore 排除
