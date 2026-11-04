@@ -5,18 +5,30 @@
 ## 核心設定
 - NCHC AI RAP 統一試用 Key：`https://portal.genai.nchc.org.tw/api/v1` + `sk-ZjaxxxxxxxxxxxxxxxxOUg`（佔位符，課前更新）
 - 額度 10,000，無需學生申請，課堂發放
-- Chatbox 新增供應商：「相容 OpenAI API」
+- Chatbox 新增供應商：「相容 OpenAI API」→ BYOK 突破 OpenAI 月費
 - 一把 Key 同時給 Unit 2 & Unit 3 使用（Unit 3 僅教師 Demo）
 
-## 實作任務（規劃）
-打造「青禾咖啡店 AI 客服小幫手」
-- 檢查點1 (8分)：匯入 RAP 設定，能對話
-- 檢查點2 (12分)：上傳 S1-S3 文件，正確回答價格與等待時間陷阱題，截圖繳交
+## 實作任務
+銷售表大檔本地分析（ChatGPT 拒收，Chatbox 生碼解）
+- **題目**：取第3欄(產品C)算 P90/P75/P50 並畫直方圖
+- **素材**：
+  - `sources/sales_month.csv` 30MB (1.05M列) - Demo用，LFS + Release v0.2.0
+  - `sources/sales_quarter.csv` 100MB (3.5M列) - 練習用，LFS + Release v0.2.0
+- **檢查點1 (8分)**：BYOK 連上 RAP，會對話
+- **檢查點2 (12分)**：生碼 → `python analyze.py` → 出 `chart.png` + 數值
+
+## Prompt 範本
+```
+角色：資管系數據助教
+任務：寫 Python 讀 sales_month.csv，取第三欄算 P90/P75/P50
+限制：pandas+matplotlib，輸出 chart.png 標三條線
+格式：完整可執行碼 + 逐行中文註解
+```
 
 ## 資料夾用途
-- `handout/` - 安裝手冊、API 申請圖文、故障排除卡
-- `sources/` - 與 Unit 1 共用或獨立的範例文件
-- `config/` - 範例 `chatbox-config.json`（注意：含 Key 的實際檔案請勿提交，見 .gitignore）
+- `sources/` - 銷售表 CSV (LFS) + 範例程式碼
+- `handout/` - 安裝手冊、BYOK 圖文、故障排除卡
+- `config/` - 範例 `chatbox-config.json`（含 Key 檔勿提交，見 .gitignore）
 
 ## 教材來源
-- 根目錄 `ai_course_handson_陳威宇_20261106.pdf` P10-P15 截圖為基礎，需轉譯為學生版
+- 根目錄備份 PDF P10-P15 設定截圖為基礎，已轉譯為 BYOK 版

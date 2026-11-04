@@ -28,7 +28,7 @@ style: |
 |---|---|---|---|
 | 00-05 | 開場 | 講解 | 課程地圖 + 一把 Key 打通全場 |
 | 05-35 | **NotebookLM** | 講解 5 + 自學 5 + Demo 20 | 一篇 PDF 自學 → 抽點 → 影片筆記法 |
-| 35-70 | **Chatbox** | 講解 15 + 實作 20 | 多模型百寶箱 + 知識庫問答 |
+| 35-70 | **Chatbox** | 講解 15 + 實作 20 | BYOK 突破月費 + 本地生碼分析 80~100MB 銷售表 |
 | 70-105 | **Opencode** | 講解 10 + **教師 Demo 25** | 用說的做 App (僅 Demo) |
 | 105-120 | 總結 | 講解 | 回顧 + QA |
 
@@ -148,21 +148,21 @@ Anthropic 2026/01 隨機對照實驗：50+ Python 工程師學 Trio，AI 組分�
 ---
 
 # Block 2 - Chatbox (35-70)
-## 你的 AI 百寶箱
+## BYOK 突破月費，本地生碼解大檔
 
 講解 15 分｜實作 20 分｜學生跟做
 
 ---
 
-## 講解 35-50｜為何不用網頁版就好？
+## 講解 35-42｜為何不用網頁版就好？
 
-| 網頁版 | Chatbox |
+| 網頁版 | Chatbox + BYOK |
 |---|---|
-| 一次只能用一家 | 同時比 GPT / Claude / Gemini |
-| 文件貼上 = 外洩 | 本地解析，不上傳原始檔 |
+| 月費 $20/月仍限量，多家各付各的 | **NCHC RAP 一把 Key `sk-Zjax...OUg` 打通 GPT/Claude/Gemini**，額度 10,000 |
+| 大檔 >25MB 拒收 | 本地生碼，100MB 銷售表不離機 |
 | Prompt 每次重打 | Prompt 庫 + 角色模板 |
 
-> 對資管人：選對模型 = 選對工具
+> 對資管人：選對模型 + 省下訂閱 = 競爭力
 
 ---
 
@@ -171,75 +171,102 @@ Anthropic 2026/01 隨機對照實驗：50+ Python 工程師學 Trio，AI 組分�
 桌面 AI 客戶端（Win/Mac/Linux）
 
 *   自帶 API Key，自由切換供應商
-*   支援 PDF / Word / 圖片解析
+*   支援 PDF / Word / 圖片 / CSV 本地解析
 *   本地知識庫，隱私不外流
 
 > 本課程只用 **NCHC RAP** 一個供應商，降低複雜度
 
 ---
 
-## 模型選型心法
+## BYOK 核心：帶自己的 Key
 
-*   **GPT-4o**：邏輯、指令遵循
-*   **Claude**：長文、寫作
-*   **Gemini**：快速、多模態
+**Before：** 學生各付 OpenAI Plus $20，仍限量
+**After：** 老師發 RAP 試用 Key，Chatbox 新增供應商
 
-> Demo：同一題「幫青禾寫公告」看語氣差異
+```
+類型：相容 OpenAI API
+主機：https://portal.genai.nchc.org.tw/api/v1
+金鑰：sk-ZjaxxxxxxxxxxxxxxxxOUg
+模型：gpt-4o-mini / gpt-4o
+```
+
+一鍵取得，多模型並排擂台，額度共用 10,000
+
+---
+
+## 題目：銷售表老闆考題
+
+老闆丟來 `sales_month.csv` 30MB / `sales_quarter.csv` 100MB，5欄各 50~50000
+
+> 請取第3欄 (產品C) 算 P90/P75/P50 並畫直方圖標線
+
+*   ChatGPT：檔案太大拒收
+*   Chatbox：不傳檔，只叫 AI 寫程式，本地執行
+
+**分級：** Demo 30MB → 練習 100MB (LFS + Release 雙軌)
 
 ---
 
 ## Prompt 從爛到好
 
-❌ `幫我分析這份文件`
+❌ `幫我分析這個銷售表`
 
 ✅
 
 ```
-角色：青禾營運顧問
-任務：只用 S1-S3 回答月費多少
-限制：附來源章節，無資料寫「未提供」
-格式：條列 + 引用
+角色：資管系數據助教
+任務：寫 Python 讀 sales_month.csv，取第三欄(索引2)算 P90/P75/P50
+限制：用 pandas + matplotlib，輸出 chart.png，標出三條百分位線
+格式：給完整可執行程式碼 + 逐行中文註解
 ```
 
-> Chatbox Prompt 庫 = 範本集
+> 存成 Prompt 庫，下次換檔名即用
 
 ---
 
-## 實作 50-70｜青禾小店員
+## 實作 50-70｜本地生碼分析
 
 **兩檢查點，20 分鐘**
 
-*   ✅ 檢查點1 (8分)：連上 RAP，會對話
-*   ✅ 檢查點2 (12分)：問出正確答案，截圖
+*   ✅ 檢查點1 (8分)：BYOK 連上 RAP，會對話
+*   ✅ 檢查點2 (12分)：生碼 → 跑碼 → 出圖
 
 兩人一組，操作員 + 查證員
 
 ---
 
-### 檢查點1：連上 RAP (8分)
+### 檢查點1：BYOK 連上 RAP (8分)
 
-1.  安裝 Chatbox
-2.  新增供應商 → `AI RAP` → `相容 OpenAI API`
+1.  安裝 Chatbox (chatboxai.app)
+2.  設定 → 模型供應商 → 新增供應商 → 名稱 `AI RAP` → 類型 `相容 OpenAI API`
 3.  主機：`https://portal.genai.nchc.org.tw/api/v1`
-4.  Key：貼 `sk-ZjaxxxxxxxxxxxxxxxxOUg`（課堂發放版）
-5.  測試 `gpt-4o-mini` 回一句話
+4.  金鑰：貼 `sk-ZjaxxxxxxxxxxxxxxxxOUg`（課堂發放版）
+5.  獲取模型 → 選 `gpt-4o-mini` → 測試：`回一句話證明你通了`
 
 > 卡住看 `unit2_chatbox/handout/故障排除卡.md`
-> 404 = 相容沒勾，401 = Key 空白
+> 404 = 相容沒勾，401 = Key 前後空白，模型空 = 未按獲取
 
 ---
 
-### 檢查點2：問出正確答案 (12分)
+### 檢查點2：生碼 → 跑碼 → 出圖 (12分)
 
-上傳 S1-S3，提問：
+1.  **生碼：** 貼上 prompt (上方範本)，Chatbox 回 `analyze.py`
+2.  **跑碼：** 存檔與 CSV 同資料夾，終端機執行
+    ```bash
+    python analyze.py  # 或雙擊執行
+    ```
+    需 `pip install pandas matplotlib` (助教已預裝starter)
+3.  **驗收：** 終端機印出 `P90/P75/P50` 數值，資料夾出現 `chart.png` 三條虛線
 
-1.  月費 1,800 還是 2,400？依據哪個版本？
-2.  70% 跟 25% 差在哪？
-3.  等待時間 8.0→5.5 是什麼指標？
+**範例輸出：**
+```
+P90: 45143
+P75: 37485
+P50: 24790
+圖表已存 chart.png
+```
 
-目標：看到 `[S1 §2]` 這種引用
-
-**繳交：** `AIWorkshop_組別_Chatbox.png` + 50字心得：哪題 AI 差點錯
+**繳交：** `chart.png` + 50字心得：Chatbox 哪行碼幫你最多？
 
 ---
 
