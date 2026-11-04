@@ -22,17 +22,17 @@ style: |
 
 ---
 
-## 120 分鐘地圖
+## 120 分鐘地圖（參考節奏）
 
-| 時間 | 區塊 | 形式 | 內容 |
+| Unit | 主題 | 形式 | 內容 |
 |---|---|---|---|
 | 00-05 | 開場 | 講解 | 課程地圖 + 一把 Key 打通全場 |
-| 05-35 | **NotebookLM** | 講解 5 + 自學 5 + Demo 20 | 一篇 PDF 自學 → 抽點 → 影片筆記法 |
-| 35-70 | **Chatbox** | 講解 15 + 實作 20 | BYOK 突破月費 + 本地生碼分析 80~100MB 銷售表 |
-| 70-105 | **Opencode** | 講解 10 + **教師 Demo 25** | 用說的做 App (僅 Demo) |
+| Unit 1 | **NotebookLM** | 教材 + 實作 | 看完就忘？一鍵做筆記 |
+| Unit 2 | **Chatbox** | 教材 + 實作 | BYOK 突破月費，本地生碼解大檔 |
+| Unit 3 | **Opencode** | 教材 + Demo | 用說的做銷售儀表板 |
 | 105-120 | 總結 | 講解 | 回顧 + QA |
 
-> 💡 NB & Chatbox 學生跟做，Opencode 老師用 MacBook Pro 完整展示
+> 💡 Unit 1 & 2 學生跟做，Unit 3 老師用 MacBook Pro 完整展示
 
 ---
 
@@ -75,207 +75,187 @@ style: |
 
 ---
 
-# Block 1 - NotebookLM (05-35)
-## 看完就忘？用 NotebookLM 做筆記
-
-講解 5 分｜自學 5 分｜Demo 20 分
+# Unit 1 - NotebookLM
+## 教材 + 實作：看完就忘？用 NotebookLM 做筆記
 
 ---
 
-## 05-10 講解｜一篇 PDF 的震撼
+## 教材1：NotebookLM 是什麼？
 
-**教材：** `2601.20245_How_AI_Impacts_Skill_Formation.pdf` + arXiv 連結
+**一句話：** Google 的 AI 筆記助理，吃 PDF/YouTube 幫你做可查證的筆記
 
-> https://arxiv.org/abs/2601.20245
+*   直接貼 arXiv PDF + YouTube 連結，不用手抄逐字稿
+*   一鍵吐：摘要 / 心智圖 / 語音摘要 / 時間軸 / 測驗
+*   每句回答都帶來源章節，可點回原文
 
-Anthropic 2026/01 隨機對照實驗：50+ Python 工程師學 Trio，AI 組分數低 17%，耗時 23 vs 24.7 分無差異
-
-一句話：**Vibe Coding 快樂但無知，交互稅與屎山正在偷走你的能力**
-
-發 PDF，宣布：用任何 AI 工具自學，5 分鐘後抽點
+> 你負責丟資料，它負責變筆記
 
 ---
 
-## 10-15 實作｜5 分鐘自學 + 抽點
+## 教材2：特色
 
-**任務卡（印在講義上）：**
+*   **多來源整合：** PDF + 影片 + 網頁同筆記本對比
+*   **引用可追溯：** 不是幻覺，每點都有 `[PDF p.3]` `[00:03:21]`
+*   **Studio 自動化：** 摘要/心智圖/語音一鍵生，省手作
+*   **專注研讀：** 限定只用你給的資料回答，不亂上網
+
+---
+
+## 教材3：跟別人有何不同？
+
+| 工具 | 定位 | 差異 |
+|---|---|---|
+| ChatGPT 單問 | 萬能問答 | 無引用，易幻覺，做完就忘 |
+| Chatbox | 多模型擂台 + 本地生碼 | 無心智圖/語音，適合分析非研讀 |
+| 人工筆記 | 手寫整理 | 耗時，難結構化 |
+| **NotebookLM** | 研讀筆記 | **有來源、可複習、可轉測驗** |
+
+---
+
+## 教材4：學生可以怎麼用？（不用寫程式）
+
+*   **論文：** 丟 2601.20245，秒出架構圖 + 中文摘要
+*   **考前：** 丟課本 PDF，生成心智圖 + 模擬考題
+*   **影片：** 19分鐘訪談貼連結，轉 5分鐘語音複習
+*   **專題：** 多份訪談逐字稿同筆記本，找共通點
+
+> 關鍵：先丟再讀，比先讀再記快
+
+---
+
+## 實作｜5 分鐘自學 + 抽點 + Demo
+
+**教材來源：** `2601.20245_How_AI_Impacts_Skill_Formation.pdf` + https://arxiv.org/abs/2601.20245 + 影片 https://www.youtube.com/watch?v=KqCHcPYbqPI
+
+---
+
+### 實作 Step 1：5 分鐘自學 + 抽點
+
+**任務卡：**
 
 ```
-用 AI 幫你讀這篇 PDF，只看 Abstract + Figure 1 + Conclusion
+用任何 AI 幫你讀這篇 PDF，只看 Abstract + Figure 1 + Conclusion
 回答：實驗發現什麼？什麼是「交互稅」？
 ```
 
-*   工具：Chatbox / ChatGPT / Gemini 皆可
-*   計時 5 分鐘，時間到抽 2 組各 30 秒分享
-*   不評對錯，只問：AI 幫你省了什麼？漏了什麼？
-
-> 老師效果：製造「完全外包」的現場體感
+*   計時 5 分，抽 2 組各 30 秒，不評對錯只問：AI 省什麼漏什麼
+*   效果：現場體感「完全外包」
 
 ---
 
-## 15-20 抽點回饋
+### 實作 Step 2：Demo 影片→筆記一鍵搞定
 
-*   抽點 2 組，投影片停在 Figure 1
-*   點出：AI 給的摘要常漏「無效率差異」與「6 種互動模式」
-*   鋪墊：影片講得更好，但看完也會忘，怎麼留住？
+**痛點：** 19:34《程序员如何不被AI玩废》看完就忘
 
----
-
-## 20-35 Demo｜影片→筆記，一鍵搞定
-
-**痛點：** 19:34 影片《程序员如何不被AI玩废》講得不錯，看完就忘
-
-**解法：NotebookLM**
+**解法：**
 
 1.  新建筆記本 `AI工作坊_組別_Vibe陷阱`
-2.  貼 YouTube 連結：`https://www.youtube.com/watch?v=KqCHcPYbqPI`
-3.  同筆記本再匯入同一份 PDF（雙來源對比）
-4.  一鍵生成：摘要 / 心智圖 / 語音摘要 / 時間軸
-5.  對比剛剛學生 AI 摘要，現場標出 NotebookLM 多出的「引用可追溯」
+2.  貼 YouTube 連結 + 同一份 PDF 雙來源
+3.  一鍵生成摘要/心智圖/語音，對比剛剛 AI 摘要多出的「引用」
 
-> 備援：`unit1_notebooklm/sources/KqCHcPYbqPI_transcript.txt` 若 YouTube 載入慢，改貼 TXT
+> 備援：`unit1_notebooklm/sources/KqCHcPYbqPI_transcript.txt`
 
 ---
 
-## Block 1 小結
+## Unit 1 小結
 
-*   PDF 自學：快但淺
+*   單問 AI：快但淺
 *   NotebookLM 筆記：有結構、可查核、可複習
-*   帶走：下次看 20 分鐘影片，先丟 NotebookLM 再看
-
-來源已備：`unit1_notebooklm/sources/` 含 PDF + 逐字稿 TXT
+*   帶走：下次看長影片，先丟 NotebookLM 再看
 
 ---
 
-# Block 2 - Chatbox (35-70)
-## BYOK 突破月費，本地生碼解大檔
-
-講解 15 分｜實作 20 分｜學生跟做
+# Unit 2 - Chatbox
+## 教材 + 實作：BYOK 突破月費，本地生碼解大檔
 
 ---
 
-## 講解 35-42｜為何不用網頁版就好？
+## 教材1：Chatbox 是什麼？
 
-| 網頁版 | Chatbox + BYOK |
-|---|---|
-| 月費 $20/月仍限量，多家各付各的 | **NCHC RAP 一把 Key `sk-Zjax...OUg` 打通 GPT/Claude/Gemini**，額度 10,000 |
-| 大檔 >25MB 拒收 | 本地生碼，100MB 銷售表不離機 |
-| Prompt 每次重打 | Prompt 庫 + 角色模板 |
+**一句話：** 帶著自己 Key 的多模型桌面客戶端，檔不離機
 
-> 對資管人：選對模型 + 省下訂閱 = 競爭力
+*   自帶 API Key，自由切換 GPT/Claude/Gemini
+*   吃 PDF/Word/圖片/CSV 本地解析，非上傳雲端
+*   Prompt 庫一鍵重用，非每次重打
 
----
-
-## Chatbox 是什麼？
-
-桌面 AI 客戶端（Win/Mac/Linux）
-
-*   自帶 API Key，自由切換供應商
-*   支援 PDF / Word / 圖片 / CSV 本地解析
-*   本地知識庫，隱私不外流
-
-> 本課程只用 **NCHC RAP** 一個供應商，降低複雜度
+> 你的 AI 百寶箱
 
 ---
 
-## BYOK 核心：帶自己的 Key
+## 教材2：特色
 
-**Before：** 學生各付 OpenAI Plus $20，仍限量
-**After：** 老師發 RAP 試用 Key，Chatbox 新增供應商
-
-```
-類型：相容 OpenAI API
-主機：https://portal.genai.nchc.org.tw/api/v1
-金鑰：sk-ZjaxxxxxxxxxxxxxxxxOUg
-模型：gpt-4o-mini / gpt-4o
-```
-
-一鍵取得，多模型並排擂台，額度共用 10,000
+*   **BYOK：** `sk-Zjax...OUg` 一把打通多家，額度 10,000，免各付月費
+*   **多模型擂台：** 同題並排看差異，選最會算的
+*   **本地生碼：** 100MB 銷售表不傳雲，叫 AI 寫 `pandas` 本地跑
+*   **隱私：** 履歷/財報在地端解析
 
 ---
 
-## 題目：銷售表老闆考題
+## 教材3：跟別人有何不同？
 
-老闆丟來 `sales_month.csv` 30MB / `sales_quarter.csv` 100MB，5欄各 50~50000
-
-> 請取第3欄 (產品C) 算 P90/P75/P50 並畫直方圖標線
-
-*   ChatGPT：檔案太大拒收
-*   Chatbox：不傳檔，只叫 AI 寫程式，本地執行
-
-**分級：** Demo 30MB → 練習 100MB (LFS + Release 雙軌)
+| 工具 | 定位 | 差異 |
+|---|---|---|
+| ChatGPT 網頁 | 單家月費限量 | 大檔 >25MB 拒收，無擂台 |
+| NotebookLM | 研讀筆記 | 不會生程式、無多模型 |
+| **Chatbox** | BYOK 百寶箱 | **多模型 + 本地生碼 + Prompt 庫** |
 
 ---
 
-## Prompt 從爛到好
+## 教材4：學生可以怎麼用？（不用寫程式）
 
-❌ `幫我分析這個銷售表`
+*   **課業：** 丟 `sales_month.csv` 算 P90/P75/P50 + 畫圖
+*   **求職：** 履歷 PDF 丟本地，三模型各修一版
+*   **社團：** 活動企劃一句話生預算表/文案
+*   **研究：** 多份財報本地對比，無外流風險
 
-✅
+> 關鍵：會選模型比會寫 prompt 重要
+
+---
+
+## 實作｜本地生碼分析
+
+**題目：** 老闆丟 `sales_month.csv` 30MB / `sales_quarter.csv` 100MB，5欄各 50~50000，取第3欄(產品C)算 P90/P75/P50 並畫直方圖
+
+*   ChatGPT：太大拒收
+*   Chatbox：不傳檔，只生碼本地執行，分級 Demo 30MB → 練習 100MB
+
+---
+
+### 實作 Step 1：BYOK 連上 RAP (8分)
+
+1.  安裝 Chatbox (chatboxai.app)
+2.  設定 → 模型供應商 → 新增 `AI RAP` → 類型 `相容 OpenAI API`
+3.  主機：`https://portal.genai.nchc.org.tw/api/v1`
+4.  金鑰：`sk-ZjaxxxxxxxxxxxxxxxxOUg`
+5.  獲取模型 → 選 `gpt-4o-mini` → 測試
+
+> 404=相容沒勾，401=Key 空白
+
+---
+
+### 實作 Step 2：生碼 → 跑碼 → 出圖 (12分)
+
+**Prompt：**
 
 ```
 角色：資管系數據助教
-任務：寫 Python 讀 sales_month.csv，取第三欄(索引2)算 P90/P75/P50
-限制：用 pandas + matplotlib，輸出 chart.png，標出三條百分位線
-格式：給完整可執行程式碼 + 逐行中文註解
+任務：寫 Python 讀 sales_month.csv 取第三欄算 P90/P75/P50
+限制：pandas+matplotlib 輸出 chart.png 標三線
+格式：可執行碼 + 逐行中文註解
 ```
 
-> 存成 Prompt 庫，下次換檔名即用
+1.  生碼存 `analyze.py`
+2.  `python analyze.py` (需 pandas/matplotlib)
+3.  驗收：終端機數值 + `chart.png`
+
+**繳交：** `chart.png` + 50字心得
 
 ---
 
-## 實作 50-70｜本地生碼分析
-
-**兩檢查點，20 分鐘**
-
-*   ✅ 檢查點1 (8分)：BYOK 連上 RAP，會對話
-*   ✅ 檢查點2 (12分)：生碼 → 跑碼 → 出圖
-
-兩人一組，操作員 + 查證員
-
----
-
-### 檢查點1：BYOK 連上 RAP (8分)
-
-1.  安裝 Chatbox (chatboxai.app)
-2.  設定 → 模型供應商 → 新增供應商 → 名稱 `AI RAP` → 類型 `相容 OpenAI API`
-3.  主機：`https://portal.genai.nchc.org.tw/api/v1`
-4.  金鑰：貼 `sk-ZjaxxxxxxxxxxxxxxxxOUg`（課堂發放版）
-5.  獲取模型 → 選 `gpt-4o-mini` → 測試：`回一句話證明你通了`
-
-> 卡住看 `unit2_chatbox/handout/故障排除卡.md`
-> 404 = 相容沒勾，401 = Key 前後空白，模型空 = 未按獲取
-
----
-
-### 檢查點2：生碼 → 跑碼 → 出圖 (12分)
-
-1.  **生碼：** 貼上 prompt (上方範本)，Chatbox 回 `analyze.py`
-2.  **跑碼：** 存檔與 CSV 同資料夾，終端機執行
-    ```bash
-    python analyze.py  # 或雙擊執行
-    ```
-    需 `pip install pandas matplotlib` (助教已預裝starter)
-3.  **驗收：** 終端機印出 `P90/P75/P50` 數值，資料夾出現 `chart.png` 三條虛線
-
-**範例輸出：**
-```
-P90: 45143
-P75: 37485
-P50: 24790
-圖表已存 chart.png
-```
-
-**繳交：** `chart.png` + 50字心得：Chatbox 哪行碼幫你最多？
-
----
-
-# Block 3 - Opencode (70-105)
+# Unit 3 - Opencode
 ## 教材 + Demo：用說的做銷售儀表板
 
-講解 15 分｜教師 Demo 20 分｜學生觀看
-
-> 本區塊 **教材 + Demo**，**不需學生操作**，看懂帶回
+> 本 Unit 教師 Demo，學生觀看帶回
 
 ---
 
@@ -406,8 +386,8 @@ P50: 24790
 ## 回顧
 
 ```
-NotebookLM 讀懂 → Chatbox 問答 → Opencode 創造
-     資料            知識            系統
+NotebookLM 讀懂 → Chatbox 分析 → Opencode 創造
+     資料            指標            系統
 ```
 
 帶走：
