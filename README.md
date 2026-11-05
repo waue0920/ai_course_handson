@@ -24,17 +24,7 @@
 
 也可前往 [v0.2.0 Release](https://github.com/waue0920/ai_course_handson/releases/tag/v0.2.0)，在 **Assets** 點選上述兩個 CSV；請選 CSV 附件，無須下載 Source code 壓縮檔。
 
-### 使用 Git 下載（選用）
-
-`sales_20.csv` 是一般文字檔，不需要 Git LFS；repo 內的完整月報與季報透過 Git LFS 管理。熟悉 Git 的同學可先安裝 [Git LFS](https://git-lfs.com/)，再執行：
-
-```bash
-git clone https://github.com/waue0920/ai_course_handson.git
-cd ai_course_handson
-git lfs pull
-```
-
-已有本機 repo 的同學，在 repo 目錄執行 `git lfs pull` 即可。如果 CSV 開頭是 `version https://git-lfs.github.com/spec/v1`，表示下載到的是指標檔；可直接改用上表的 Release 連結取得完整資料。
+`unit2_chatbox/sources/` 只保留 `sales_20.csv` 小樣本；完整月報與季報請從上方 Release 連結下載。
 
 ## Unit 1｜NotebookLM：研讀來源
 
@@ -57,25 +47,20 @@ git lfs pull
 
 分三階段完成：小樣本核對數值 → 完整月報畫圖 → 季報跨產品深入分析。所有程式都在本機執行。
 
-
-```bash
-
+1. 將以下第一個 prompt 貼到 Chatbox：
+```text
+找得到這個檔嗎
+https://raw.githubusercontent.com/waue0920/ai_course_handson/main/unit2_chatbox/sources/sales_20.csv
 ```
 
-將以下第一個 prompt 貼到 Chatbox：
+2. 將以下個 prompt 貼到 Chatbox：
 
 ```text
-請寫一個可在本機執行的 Python 程式 analyze.py，使用 pandas
 讀取目前資料夾的 sales_20.csv（UTF-8，可能有 BOM）。
-https://raw.githubusercontent.com/waue0920/ai_course_handson/main/unit2_chatbox/sources/sales_20.csv
+請寫一個可在本機執行的 Python 程式 analyze.py
 以欄位名稱「產品C」選取資料，每格代表一筆模擬銷售金額（元）。
-
 請列出總筆數、缺失筆數、有效筆數、最小值、最大值，
 並以線性插值計算 P50、P75、P90，顯示至小數點後兩位。
-非數值資料請明確報錯，不要自行刪除；缺失值不參與統計。
-這一步先不要畫圖。提供完整程式、套件安裝與執行指令，
-並解釋百分位的計算方式。未讀到實際檔案前，不要編造結果。
-
 ```
 
  **對答案**
@@ -119,27 +104,29 @@ python analyze.py sales_month.csv
 
 繳交：月報統計結果、直方圖、兩項查核紀錄，以及一句對分布的解讀。
 
-### 延伸練習 第三階段：
+### 延伸練習 第三階段：輸出報告 quarter_summary.md
 
-**情境：主管想知道「哪個產品的典型交易較高？哪個產品的高額交易落差較大？」請用季報比較產品 A–E，提出有數據依據的觀察。**
+用季報比較產品 A–E，體驗讓 AI 協助把統計數字整理成報告。
+
+將以下 prompt 貼到 Chatbox：
 
 ```text
-curl -fL https://github.com/waue0920/ai_course_handson/releases/download/v0.2.0/sales_quarter.csv -o sales_quarter.csv
+請寫一個本機 Python 程式 analyze_quarter.py，使用 pandas、matplotlib
+讀取 sales_quarter.csv，比較產品A到產品E。
+https://github.com/waue0920/ai_course_handson/releases/download/v0.2.0/sales_quarter.csv
 
+1. 計算各產品的有效筆數、平均數、P50、P75、P90，百分位採線性插值。
+2. 畫一張五產品的百分位比較圖，存成 quarter_chart.png。
+3. 自動產生 quarter_summary.md，包含統計表、圖表、三項數據觀察，
+   並回答：哪個產品的 P50 最高？哪個產品的 P90 與 P50 差距最大？
 
-請自行設計 prompt，讓 Chatbox 協助產生本機分析程式，完成下列工作：
-
-1. 各產品列出總筆數、有效與缺失筆數、平均數、P25、P50、P75、P90、P99；百分位統一使用線性插值。
-2. 計算 IQR（P75 − P25）與 P90 − P50，分別比較中間一半資料的離散程度、典型交易到高額門檻的差距；指出 P50 最高及 P90 − P50 最大的產品。
-3. 以各產品自己的 P90 為門檻，計算「嚴格大於 P90」的筆數比例，以及這些觀測金額占該產品總金額的比例。說明為什麼門檻、筆數比例與金額占比是不同概念；相同值可能使筆數比例不恰好等於 10%。
-4. 繪製五產品百分位比較圖，以及使用共同金額區間、正規化比例的分布圖，確保比較尺度一致。
-5. 寫下三項有數值支持的發現與兩項分析限制。若產品差異很小，也應如實報告；這是模擬金額資料，沒有日期、成本或顧客資訊，不可直接推論成長趨勢、利潤或顧客行為。
-
-查核要求：各產品有效＋缺失＝總筆數，且最小值 ≤ P25 ≤ P50 ≤ P75 ≤ P90 ≤ P99 ≤ 最大值。若採分塊處理，須正確計算全體分位數，不能平均各塊的百分位；若用近似算法，需交代誤差並與精確結果核對。
+* 輸出
+quarter_summary.md
 ```
 
- **對答案**
-繳交：`quarter_summary.csv`、比較圖、完整程式與簡短分析報告，說明計算方法、查核證據與結論限制。
+打開 `quarter_summary.md` 預覽，確認圖表能顯示，並挑一個產品核對報告與程式輸出的數字是否一致。
+
+體驗成果：一份統計表、一張比較圖，以及三項有數字依據的觀察。
 
 ## Unit 3｜OpenCode：製作互動儀表板
 

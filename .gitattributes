@@ -1,5 +1,2 @@
-unit2_chatbox/sources/sales_80MB.csv filter=lfs diff=lfs merge=lfs -text
-unit2_chatbox/sources/*.csv filter=lfs diff=lfs merge=lfs -text
-
 # 小樣本直接由 Git 管理，無需 Git LFS
 unit2_chatbox/sources/sales_20.csv -filter -diff -merge text
