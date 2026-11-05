@@ -130,15 +130,6 @@ quarter_summary.md
 
 ## Unit 3｜OpenCode：製作互動儀表板
 
-教師使用 [OpenCode](https://opencode.ai/) 示範，把 Unit 2 的月報資料做成本機儀表板：
-
-- 切換產品 A–E。
-- 顯示 P50、P75、P90 與直方圖。
-- 下載目前產品的圖表。
-- 核對產品 C 的統計結果是否與 Unit 2 一致。
-
-練習把需求說清楚，觀察 Agent 如何規劃、修改檔案與執行，再以實際操作驗收成果。
-
 ### 安裝、設定與使用（以 macOS 為例）
 * 安裝初始化
 ```bash
@@ -163,4 +154,18 @@ export NCHC_RAP_KEY='貼上課堂提供的 Key'
 
 # 5. 啟動 OpenCode
 opencode
+```
+
+
+```
+看得到 quarter_summary.md 這個檔嗎？
+用網頁工具在本機做一個儀表板：
+
+- 切換產品 A–E。
+- 顯示 P50、P75、P90 與直方圖。
+- 下載目前產品的圖表。
+- 核對產品 C 的統計結果是否與 Unit 2 一致。
+
+完成後打開伺服器讓我可以訪問
+http://localhost:8000/dashboard.html
 ```
