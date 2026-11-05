@@ -1,0 +1,109 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "providers": {
+    "airap": {
+      "package": "aisdk:@ai-sdk/openai-compatible",
+      "name": "NCHC TAIWAN AI RAP",
+      "settings": {
+        "baseURL": "https://portal.genai.nchc.org.tw/api/v1",
+        "apiKey": "{env:NCHC_RAP_KEY}"
+      },
+      "headers": {
+        "x-api-key": "{env:NCHC_RAP_KEY}"
+      },
+      "models": {
+        "Muse-Spark-Open-816B-A42B": {
+          "name": "Muse-Spark-Open-816B-A42B"
+        },
+        "NVIDIA-Nemotron-3-Ultra-550B-A55B": {
+          "name": "NVIDIA-Nemotron-3-Ultra-550B-A55B"
+        },
+        "gemma-4-31B-it": {
+          "name": "gemma-4-31B-it"
+        },
+        "gpt-oss-120b": {
+          "name": "gpt-oss-120b"
+        }
+      }
+    }
+  },
+  "agents": {
+    "build": {
+      "mode": "all",
+      "description": "AI RAP：Muse，實作與修正程式",
+      "model": "airap/Muse-Spark-Open-816B-A42B",
+      "permissions": [
+        {
+          "action": "*",
+          "resource": "*",
+          "effect": "allow"
+        }
+      ]
+    },
+    "plan": {
+      "mode": "all",
+      "description": "AI RAP：Muse，規劃與分析需求",
+      "model": "airap/Muse-Spark-Open-816B-A42B",
+      "permissions": [
+        {
+          "action": "edit",
+          "resource": "*",
+          "effect": "deny"
+        },
+        {
+          "action": "bash",
+          "resource": "*",
+          "effect": "allow"
+        }
+      ]
+    },
+    "build-rap_Muse": {
+      "mode": "all",
+      "description": "AI RAP：Muse-Spark-Open-816B-A42B",
+      "model": "airap/Muse-Spark-Open-816B-A42B",
+      "permissions": [
+        {
+          "action": "*",
+          "resource": "*",
+          "effect": "allow"
+        }
+      ]
+    },
+    "build-rap_Nemotron": {
+      "mode": "all",
+      "description": "AI RAP：NVIDIA-Nemotron-3-Ultra-550B-A55B",
+      "model": "airap/NVIDIA-Nemotron-3-Ultra-550B-A55B",
+      "permissions": [
+        {
+          "action": "*",
+          "resource": "*",
+          "effect": "allow"
+        }
+      ]
+    },
+    "build-rap_Gemma": {
+      "mode": "all",
+      "description": "AI RAP：gemma-4-31B-it",
+      "model": "airap/gemma-4-31B-it",
+      "permissions": [
+        {
+          "action": "*",
+          "resource": "*",
+          "effect": "allow"
+        }
+      ]
+    },
+    "build-rap_GPTOSS": {
+      "mode": "all",
+      "description": "AI RAP：gpt-oss-120b",
+      "model": "airap/gpt-oss-120b",
+      "permissions": [
+        {
+          "action": "*",
+          "resource": "*",
+          "effect": "allow"
+        }
+      ]
+    }
+  }
+}

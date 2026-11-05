@@ -54,3 +54,6 @@ tmp/
 
 # 參考教材備份（可選：若黃教授教材僅作內部參考，不推上公開 repo，取消下一行註解）
 # Hour_2_NotebookLM_Hands_On.pptx.pdf
+
+# 課程用 OpenCode 範本（僅引用環境變數，不含 Key）
+!unit3_opencode/config/opencode.json
