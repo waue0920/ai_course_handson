@@ -7,7 +7,9 @@
 - 準備 Google 帳號，登入 [NotebookLM](https://notebooklm.google.com/)。
 - 安裝 [Chatbox](https://chatboxai.app/)。
 - 準備 Python 與 `pandas`、`matplotlib`，供 Unit 2 在本機執行分析。
+- 課程 NCHC AI RAP key 為 sk-ZjaNJt8caQu8PG63WjIOUg
 - API 網址、試用 Key 與設定步驟，請見 [課程試用 API 設定（Issue #1）](https://github.com/waue0920/ai_course_handson/issues/1)。
+
 
 ## 材料下載
 
@@ -150,7 +152,7 @@ curl -fL \
 * 執行
 ```bash
 # 4. 將引號內文字替換為 Issue #1 公布的完整 Key
-export NCHC_RAP_KEY='貼上課堂提供的 Key'
+export NCHC_RAP_KEY='sk-ZjaNJt8caQu8PG63WjIOUg'
 
 # 5. 啟動 OpenCode
 opencode
